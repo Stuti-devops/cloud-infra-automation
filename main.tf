@@ -33,6 +33,11 @@ resource "azurerm_resource_group" "name4" {
     location = "westus"
   
 }
+resource "azurerm_resource_group" "name5" {
+    name ="Rg15"
+    location = "westus"
+  
+}
 resource "azurerm_resource_group" "MyNewRG" {
     name ="FreshRG"
     location = "westus"
