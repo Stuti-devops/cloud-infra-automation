@@ -38,3 +38,8 @@ resource "azurerm_resource_group" "name5" {
     location = "westus"
   
 }
+resource "azurerm_resource_group" "Rg7" {
+    name ="RG7"
+    location = "westus"
+  
+}
