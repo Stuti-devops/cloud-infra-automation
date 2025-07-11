@@ -48,3 +48,7 @@ resource "azurerm_resource_group" "Rg7" {
     name ="RG7"
     location="wetus"
 }
+resource "azurerm_resource_group" "Rgtodoappresource7" {
+    name ="todoappresource"
+    location="westus"
+}
