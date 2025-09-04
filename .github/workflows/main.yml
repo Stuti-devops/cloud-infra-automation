@@ -1,0 +1,45 @@
+name: InfraPipelineStuti
+on: 
+  push:
+    branches:
+         - main
+permissions: 
+  id-token: write
+  contents: read
+  # pull_request:
+  #   branches: 
+  #        - features 
+jobs: 
+  terraform_init_and_plan:
+    name: Terraform init and Plan
+    runs-on: StutiInfraPipeline
+    steps: 
+      - name: checkout
+        uses: action/checkout@v5.0.0
+      - name: Azure Login
+        uses: Azure/login@v2.3.0
+        with:
+    
+          client-id: ${{ secrets.CLIENT_ID }}
+    
+          tenant-id: ${{ secrets.AZURE_TENENT_ID }}
+    
+          subscription-id: ${{ secrets.SUBSCRIPTION_ID }}
+   
+      - name: Terraform Init
+        id: init
+        run: terraform init -input=false
+
+      - name: Terraform Validate
+        id: validate
+        run: terraform validate -no-color
+
+      - name: Terraform Plan
+        id: plan
+        run: terraform plan -no-color -input=false
+        continue-on-error: true
+         
+        
+  
+  
+  
