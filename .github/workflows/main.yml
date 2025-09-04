@@ -12,7 +12,7 @@ permissions:
 jobs: 
   terraform_init_and_plan:
     name: Terraform init and Plan
-    runs-on: StutiInfraPipeline
+    runs-on: self-hosted
     steps: 
       - name: checkout
         uses: action/checkout@v5.0.0
